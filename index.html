@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login</title>
+  <title>Insta-style Feed</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
     }
 
@@ -16,94 +16,70 @@
       background-color: #f0f0f3;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       height: 100vh;
+      overflow: hidden;
     }
 
-    .login-container {
+    /* Top Bar */
+    .top-bar {
+      height: 50px;
       background-color: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 90%;
-      max-width: 400px;
-      margin: 0 auto;
-      margin-bottom: 80px; /* for space above bottom nav */
-    }
-
-    .login-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1e1e2f;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
-      color: #333;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    .enter-btn {
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      font-size: 16px;
-      background-color: #1e1e2f;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .enter-btn:hover {
-      background-color: #00aaff;
-    }
-
-    .options {
       display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .options button {
+    .user-icon {
+      font-size: 24px;
+      text-decoration: none;
+      color: #1e1e2f;
+      transition: color 0.2s;
+    }
+
+    .user-icon:hover {
+      color: #00aaff;
+    }
+
+    /* Scrollable feed */
+    .feed {
       flex: 1;
-      margin: 0 5px;
+      overflow-y: auto;
+      padding: 15px;
+    }
+
+    .post {
+      margin-bottom: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       padding: 10px;
-      font-size: 16px;
-      background-color: #1e1e2f;
-      color: #fff;
-      border: none;
+    }
+
+    .post img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
       border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.2s;
     }
 
-    .options button:hover {
-      background-color: #00aaff;
-    }
-
-    .note {
-      margin-top: 15px;
-      font-size: 13px;
-      color: #666;
+    .caption {
+      margin-top: 8px;
+      font-size: 15px;
+      color: #444;
+      font-weight: 500;
       text-align: center;
     }
 
+    .post:last-child {
+      margin-bottom: 100px;
+    }
+
+    /* Bottom nav bar */
     .bottom-nav {
       display: flex;
       justify-content: space-around;
@@ -138,36 +114,57 @@
 </head>
 <body>
 
-  <div class="login-container">
-    <h2>Login</h2>
-    <form>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter your username" required />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password" required />
-      </div>
-      <button type="submit" class="enter-btn">Enter</button>
+  <!-- Top Bar with User Icon -->
+  <div class="top-bar">
+    <a href="login.html" class="user-icon" title="Login">
+      👤
+    </a>
+  </div>
 
-      <div class="options">
-        <button type="button" onclick="alert('Free version selected')">Free Version</button>
-        <button type="button" onclick="alert('Redirecting to payment...')">Paid Version</button>
-      </div>
-
-      <p class="note">You can continue with the free version or upgrade anytime.</p>
-    </form>
+  <!-- Feed -->
+  <div class="feed">
+    <div class="post">
+      <div class="caption">Data Collection</div>
+    </div>
+    <div class="post">
+      <div class="caption">User Consent</div>
+    </div>
+    <div class="post">
+      <div class="caption">Data Storage</div>
+    </div>
+    <div class="post">
+      <div class="caption">Data Sharing/Selling</div>
+    </div>
+    <div class="post">
+      <div class="caption">Bias and Fairness</div>
+    </div>
+    <div class="post">
+      <div class="caption">How to Protect Yourself</div>
+    </div>
+    <div class="post">
+      <div class="caption">References</div>
+    </div>
   </div>
 
   <!-- Bottom Navigation -->
   <div class="bottom-nav">
-    <a href="home.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="search.html">Search</a>
     <a href="projects.html">Projects</a>
   </div>
 
+  <!-- Active link script -->
+  <script>
+    const links = document.querySelectorAll('.bottom-nav a');
+    const currentPage = window.location.pathname.split('/').pop();
+
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+
 </body>
 </html>
-
 
