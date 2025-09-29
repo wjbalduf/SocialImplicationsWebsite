@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f0f0f3;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Top Bar with User Icon */
+    .top-bar {
+      height: 50px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .user-icon {
+      font-size: 24px;
+      text-decoration: none;
+      color: #1e1e2f;
+      transition: color 0.2s;
+    }
+
+    .user-icon:hover {
+      color: #00aaff;
+    }
+
+    /* Filters Section */
+    .filters-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .filter-group {
+      width: 48%;
+    }
+
+    .filter-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .filter-select {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    /* Search Field */
+    .search-container {
+      position: relative;
+      padding: 15px;
+      padding-top: 10px;
+      z-index: 2;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 15px;
+      right: 15px;
+      background: white;
+      border: 1px solid #ccc;
+      border-top: none;
+      max-height: 150px;
+      overflow-y: auto;
+      z-index: 3;
+      display: none;
+      border-radius: 6px;
+    }
+
+    .dropdown div {
+      padding: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .dropdown div:hover {
+      background-color: #e0f7fa;
+    }
+
+    .search-history {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+    }
+
+    .search-item {
+      background-color: #ffffff;
+      margin-bottom: 10px;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #444;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-item:hover {
+      background-color: #e0f7fa;
+    }
+
+    .clear-button {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .clear-button:hover {
+      background-color: #e60000;
+    }
+
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      background-color: #1e1e2f;
+      border-top: 1px solid #333;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .bottom-nav a {
+      font-size: 14px;
+      color: #d1d1d1;
+      text-decoration: none;
+      padding: 10px;
+      transition: color 0.2s;
+    }
+
+    .bottom-nav a:hover {
+      color: #00aaff;
+    }
+
+    .bottom-nav a.active {
+      color: #00aaff;
+      font-weight: bold;
+      border-bottom: 2px solid #00aaff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <a href="login.html" class="user-icon" title="Login">
+      👤
+    </a>
+  </div>
+
+  <!-- Filters Section -->
+  <div class="filters-container">
+    <div class="filter-group">
+      <div class="filter-title">Material</div>
+      <select id="materialFilter" class="filter-select" onchange="applyFilters()">
+        <option value="">All</option>
+        <option value="Plastic">Plastic</option>
+        <option value="Wood">Wood</option>
+        <option value="Metal">Metal</option>
+        <option value="Aluminum">Aluminum</option>
+        <option value="PET">PET</option>
+        <option value="Coconut">Coconut</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Price Range</div>
+      <select id="priceFilter" class="filter-select" onchange="applyFilters()">
+        <option value="">All</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Search Field -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search..." onfocus="showDropdown()" oninput="filterDropdown()">
+    <div class="dropdown" id="dropdown">
+      <div onclick="selectOption('PET')">PET</div>
+      <div onclick="selectOption('Wood')">Wood</div>
+      <div onclick="selectOption('Metal')">Metal</div>
+      <div onclick="selectOption('Aluminum')">Aluminum</div>
+      <div onclick="selectOption('Plastic')">Plastic</div>
+    </div>
+  </div>
+
+  <!-- Recent Searches -->
+  <div class="search-history" id="searchHistory">
+    <button class="clear-button" onclick="clearSearches()">Clear All</button>
+    <div class="search-item" data-material="Plastic" data-price="low">Recycled roofing materials</div>
+    <div class="search-item" data-material="PET" data-price="medium">PET plastic roof benefits</div>
+    <div class="search-item" data-material="Coconut" data-price="low">How to install coconut fiber insulation</div>
+    <div class="search-item" data-material="Metal" data-price="high">Roof durability tests in Ghana</div>
+    <div class="search-item" data-material="PET" data-price="low">Affordable housing with recycled materials</div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <a href="home.html">Home</a>
+    <a href="search.html" class="active">Search</a>
+    <a href="projects.html">Projects</a>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('.bottom-nav a');
+    const currentPage = window.location.pathname.split('/').pop();
+
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+
+    const dropdown = document.getElementById('dropdown');
+    const searchInput = document.getElementById('searchInput');
+
+    function showDropdown() {
+      dropdown.style.display = 'block';
+    }
+
+    function selectOption(text) {
+      searchInput.value = text;
+      dropdown.style.display = 'none';
+    }
+
+    function filterDropdown() {
+      const filter = searchInput.value.toLowerCase();
+      const options = dropdown.querySelectorAll('div');
+      let anyVisible = false;
+
+      options.forEach(option => {
+        if (option.innerText.toLowerCase().includes(filter)) {
+          option.style.display = 'block';
+          anyVisible = true;
+        } else {
+          option.style.display = 'none';
+        }
+      });
+
+      dropdown.style.display = anyVisible ? 'block' : 'none';
+    }
+
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.search-container')) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+    function clearSearches() {
+      const historyDiv = document.getElementById('searchHistory');
+      const clearBtn = historyDiv.querySelector('.clear-button');
+      historyDiv.innerHTML = '';
+      historyDiv.appendChild(clearBtn);
+    }
+
+    function applyFilters() {
+      const material = document.getElementById("materialFilter").value;
+      const price = document.getElementById("priceFilter").value;
+      const items = document.querySelectorAll(".search-item");
+
+      items.forEach(item => {
+        const itemMaterial = item.dataset.material.toLowerCase();
+        const itemPrice = item.dataset.price.toLowerCase();
+
+        const matchMaterial = !material || itemMaterial === material.toLowerCase();
+        const matchPrice = !price || itemPrice === price.toLowerCase();
+
+        if (matchMaterial && matchPrice) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f0f0f3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      margin: 0 auto;
+      margin-bottom: 80px; /* for space above bottom nav */
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1e1e2f;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .enter-btn {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #1e1e2f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .enter-btn:hover {
+      background-color: #00aaff;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .options button {
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #1e1e2f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .options button:hover {
+      background-color: #00aaff;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      background-color: #1e1e2f;
+      border-top: 1px solid #333;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .bottom-nav a {
+      font-size: 14px;
+      color: #d1d1d1;
+      text-decoration: none;
+      padding: 10px;
+      transition: color 0.2s;
+    }
+
+    .bottom-nav a:hover {
+      color: #00aaff;
+    }
+
+    .bottom-nav a.active {
+      color: #00aaff;
+      font-weight: bold;
+      border-bottom: 2px solid #00aaff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <form>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+      <button type="submit" class="enter-btn">Enter</button>
+
+      <div class="options">
+        <button type="button" onclick="alert('Free version selected')">Free Version</button>
+        <button type="button" onclick="alert('Redirecting to payment...')">Paid Version</button>
+      </div>
+
+      <p class="note">You can continue with the free version or upgrade anytime.</p>
+    </form>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <a href="home.html">Home</a>
+    <a href="search.html">Search</a>
+    <a href="projects.html">Projects</a>
+  </div>
+
+</body>
+</html>
+
+
