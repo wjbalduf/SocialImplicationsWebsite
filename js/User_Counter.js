@@ -1,18 +1,5 @@
-const NAMESPACE = "socialimplicationswebsite";
-const KEY = "ut_Gw6DLG3jIo7FCO0bY1e26GUL3xR8BHqbD64CKTGl";
-
-async function incrementCounter() {
-  try {
-    const res = await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
-    const data = await res.json();
-    console.log(`Continue button clicked ${data.value} times!`);
-
-    const countDisplay = document.getElementById("countDisplay");
-    if (countDisplay) countDisplay.textContent = data.value;
-  } catch (err) {
-    console.error("Failed to update counter:", err);
-  }
-}
+const NAMESPACE = "SocialImplications";
+const KEY = "login_clicks";
 
 async function loadCounter() {
   try {
@@ -25,19 +12,30 @@ async function loadCounter() {
   }
 }
 
+async function incrementCounter() {
+  try {
+    const res = await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
+    const data = await res.json();
+    const countDisplay = document.getElementById("countDisplay");
+    if (countDisplay) countDisplay.textContent = data.value;
+    console.log(`Continue button clicked ${data.value} times!`);
+  } catch (err) {
+    console.error("Failed to update counter:", err);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadCounter();
 
   const form = document.querySelector("form");
-  const button = document.querySelector(".enter-btn");
 
-  if (form && button) {
+  if (form) {
     form.addEventListener("submit", async (event) => {
-      event.preventDefault(); // stop immediate redirect
-      await incrementCounter(); // wait for counter
-      window.location.href = "home.html"; // then go
+      event.preventDefault();          // stop immediate redirect
+      await incrementCounter();        // increment counter
+      window.location.href = "home.html"; // redirect after update
     });
   } else {
-    console.warn("Form or continue button not found.");
+    console.warn("Form not found.");
   }
 });
