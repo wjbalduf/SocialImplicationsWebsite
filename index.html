@@ -6,10 +6,18 @@
   <title>Login</title>
   <link rel="stylesheet" href="css/base.css">
 </head>
+
 <body>
+  <!-- Counter -->
+  <div class="counter-box">
+    <div id="countDisplay" class="counter-value">0</div>
+    <div class="counter-label">Total Site Visits</div>
+  </div>
+
+  <!-- Login form -->
   <div class="login-container">
     <h2>Enter</h2>
-    <form action="home.html" method="get">
+    <form id="loginForm" action="home.html" method="get">
       <div class="form-group">
         <label for="username">Name</label>
         <input type="text" id="username" placeholder="Enter your name" required />
@@ -26,14 +34,40 @@
     </form>
   </div>
 
-
   <!-- Cookie consent popup -->
   <div id="cookiePopup">
     <p>This site uses cookies. You can deny cookies if you want.</p>
     <button id="denyCookieBtn">Deny</button>
   </div>
 
-<script src="js/cookies.js"></script>
-<script src="js/session.js"></script>
+  <!-- Scripts -->
+  <script src="js/cookies.js"></script>
+  <script>
+    // CountAPI logic
+    const countDisplay = document.getElementById('countDisplay');
+    const NAMESPACE = "public-login-demo";
+    const KEY = "visits";
+
+    async function updateCounter() {
+      try {
+        const res = await fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`);
+        const data = await res.json();
+        countDisplay.textContent = data.value;
+      } catch (err) {
+        console.error("Failed to load counter:", err);
+      }
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", async () => {
+      try {
+        await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
+        updateCounter();
+      } catch (err) {
+        console.error("Failed to increment counter:", err);
+      }
+    });
+
+    updateCounter();
+  </script>
 </body>
 </html>
