@@ -42,16 +42,6 @@
 
   <!-- Scripts -->
   <script src="js/cookies.js"></script>
-  <script src="js/trackings.js"></script>
-
-  <!-- Counter Fetch Script -->
-  <script>
-    fetch("https://api.counterapi.dev/v1/socialimplications/login-clicks/")
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("loginCount").innerText = data.count;
-      })
-      .catch(err => console.error(err));
-  </script>
+  <script src="js/counter.js"></script>
 </body>
 </html>
