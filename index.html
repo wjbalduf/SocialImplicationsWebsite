@@ -10,7 +10,7 @@
 <body>
   <!-- Counter -->
   <div class="counter-box">
-    <div id="countDisplay" class="counter-value">0</div>
+    <div id="loginCount">Loading...</div>
     <div class="counter-label">Total Site Visits</div>
   </div>
 
@@ -42,32 +42,16 @@
 
   <!-- Scripts -->
   <script src="js/cookies.js"></script>
+  <script src="js/trackings.js"></script>
+
+  <!-- Counter Fetch Script -->
   <script>
-    // CountAPI logic
-    const countDisplay = document.getElementById('countDisplay');
-    const NAMESPACE = "public-login-demo";
-    const KEY = "visits";
-
-    async function updateCounter() {
-      try {
-        const res = await fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`);
-        const data = await res.json();
-        countDisplay.textContent = data.value;
-      } catch (err) {
-        console.error("Failed to load counter:", err);
-      }
-    }
-
-    document.getElementById("loginForm").addEventListener("submit", async () => {
-      try {
-        await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
-        updateCounter();
-      } catch (err) {
-        console.error("Failed to increment counter:", err);
-      }
-    });
-
-    updateCounter();
+    fetch("https://api.counterapi.dev/v1/socialimplications/login-clicks/")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("loginCount").innerText = data.count;
+      })
+      .catch(err => console.error(err));
   </script>
 </body>
 </html>
