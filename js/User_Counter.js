@@ -1,13 +1,16 @@
-const NAMESPACE = "socialimplications";
-const KEY = "login_clicks";
-const TOKEN = "ut_Gw6DLG3jIo7FCO0bY1e26GUL3xR8BHqbD64CKTGl"; // your token
+// =======================
+// User_Counter.js
+// =======================
 
+const NAMESPACE = "socialimplications"; // your workspace/namespace
+const KEY = "login_clicks";             // your counter name
+const TOKEN = "ut_Gw6DLG3jIo7FCO0bY1e26GUL3xR8BHqbD64CKTGl"; // your v2 token
+
+// Load the current counter value on page load
 async function loadCounter() {
   try {
     const res = await fetch(`https://api.countapi.xyz/v2/${NAMESPACE}/${KEY}/get`, {
-      headers: {
-        'Authorization': `Bearer ${TOKEN}`
-      }
+      headers: { 'Authorization': `Bearer ${TOKEN}` }
     });
     const data = await res.json();
     const countDisplay = document.getElementById("countDisplay");
@@ -17,13 +20,12 @@ async function loadCounter() {
   }
 }
 
+// Increment counter when Continue is clicked
 async function incrementCounter() {
   try {
     const res = await fetch(`https://api.countapi.xyz/v2/${NAMESPACE}/${KEY}/hit`, {
       method: "POST",
-      headers: {
-        'Authorization': `Bearer ${TOKEN}`
-      }
+      headers: { 'Authorization': `Bearer ${TOKEN}` }
     });
     const data = await res.json();
     const countDisplay = document.getElementById("countDisplay");
@@ -34,18 +36,22 @@ async function incrementCounter() {
   }
 }
 
+// Wait for DOM to load
 document.addEventListener("DOMContentLoaded", () => {
+  // Show initial counter
   loadCounter();
 
-  const form = document.querySelector("form");
-
+  // Attach to form submit
+  const form = document.getElementById("loginForm");
   if (form) {
     form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      await incrementCounter();
-      window.location.href = "home.html";
+      event.preventDefault();      // stop immediate redirect
+      await incrementCounter();    // increment counter
+      setTimeout(() => {           // slight delay so user sees number change
+        window.location.href = "home.html";
+      }, 250);
     });
   } else {
-    console.warn("Form not found.");
+    console.warn("Login form not found!");
   }
 });
