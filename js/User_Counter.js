@@ -1,5 +1,5 @@
 const NAMESPACE = "socialimplicationswebsite";
-const KEY = "login_clicks";
+const KEY = "ut_Gw6DLG3jIo7FCO0bY1e26GUL3xR8BHqbD64CKTGl";
 
 async function incrementCounter() {
   try {
