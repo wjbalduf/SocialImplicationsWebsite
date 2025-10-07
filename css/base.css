@@ -1,136 +1,123 @@
-/* --- Reset & base --- */
+/* =========================================================
+   Global Reset & Base Styles
+========================================================= */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  background-color: #f0f0f3;
+  background-color: #eef1f6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+
+/* =========================================================
+   Header Title Bar (Summary page)
+========================================================= */
+.page-title {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+  color: #ffffff;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 16px 0;
+  border-bottom: 2px solid #00aaff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  margin: 0 auto 15px auto;
+  border-radius: 15px;
+}
+
+/* =========================================================
+   Feed Layout (Summary page)
+========================================================= */
+.feed {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  position: relative;
-  flex-direction: column;
 }
 
-/* --- Counter --- */
-.counter-box {
-  position: absolute;
-  left: 25%;
-  transform: translateX(-50%);
-  text-align: center;
+.post {
   background: #ffffff;
-  padding: 20px 30px;
   border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 20px 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  max-width: 800px;
+  width: 100%;
 }
 
-.counter-value {
-  font-size: 2em;
-  font-weight: bold;
-  color: #1e1e2f;
+.post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.counter-label {
-  font-size: 14px;
-  color: #555;
-  margin-top: 4px;
-}
-
-/* --- Login container --- */
-.login-container {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 400px;
-  margin: 0 auto;
-  margin-bottom: 80px; /* for space above bottom nav */
-  text-align: center;
-}
-
-.login-container h2 {
-  margin-bottom: 20px;
-  color: #1e1e2f;
-}
-
-.form-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
+.caption {
+  font-size: 16px;
+  line-height: 1.6;
   color: #333;
+  font-weight: 400;
+  text-align: justify;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="tel"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
+.post:last-child {
+  margin-bottom: 100px;
 }
 
-.enter-btn {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #1e1e2f;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.enter-btn:hover {
-  background-color: #00aaff;
-}
-
-/* --- Options buttons --- */
-.options {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.options button {
+/* =========================================================
+   Project Cards (Projects page)
+========================================================= */
+.project-container {
   flex: 1;
-  margin: 0 5px;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #1e1e2f;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  overflow-y: auto;
+  padding: 20px;
 }
 
-.options button:hover {
-  background-color: #00aaff;
+.project-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.note {
-  margin-top: 15px;
-  font-size: 13px;
-  color: #666;
-  text-align: center;
+.project-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 10px;
 }
 
-/* --- Bottom nav --- */
+.cost-summary {
+  font-size: 14px;
+  color: #444;
+}
+
+.cost-summary ul {
+  margin-left: 20px;
+  margin-top: 5px;
+  list-style-type: disc;
+}
+
+.cost-summary ul li {
+  font-style: italic;
+}
+
+/* =========================================================
+   Bottom Navigation Bar
+========================================================= */
 .bottom-nav {
   display: flex;
   justify-content: space-around;
@@ -142,6 +129,7 @@ input[type="tel"] {
   bottom: 0;
   left: 0;
   width: 100%;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .bottom-nav a {
@@ -162,40 +150,26 @@ input[type="tel"] {
   border-bottom: 2px solid #00aaff;
 }
 
-/* --- Cookie popup --- */
-#cookiePopup {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #1e1e2f;
-  color: #fff;
-  padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  max-width: 300px;
-  transition: all 0.5s ease;
-}
+/* =========================================================
+   Responsive Tweaks
+========================================================= */
+@media (max-width: 600px) {
+  .post {
+    padding: 16px;
+    border-radius: 12px;
+  }
 
-#cookiePopup p {
-  margin: 0;
-  font-size: 14px;
-  flex: 1;
-}
+  .caption {
+    font-size: 15px;
+  }
 
-#cookiePopup button {
-  background-color: #ef4444;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-}
+  .page-title {
+    font-size: 20px;
+    width: 95%;
+  }
 
-#cookiePopup button:hover {
-  background-color: #dc2626;
+  .project-card {
+    padding: 12px;
+    border-radius: 8px;
+  }
 }

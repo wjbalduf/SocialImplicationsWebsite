@@ -1,0 +1,94 @@
+/* Center login page content */
+body {
+  background-color: #eef1f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: center;     /* centers horizontally */
+  height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Counter box */
+.counter-box {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 16px 24px;
+  margin-bottom: 25px;
+}
+
+#loginCount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00aaff;
+}
+
+.counter-label {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Login box */
+.login-container {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 30px 40px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  width: 320px;
+}
+
+.login-container h2 {
+  text-align: center;
+  color: #1e1e2f;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.enter-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #00aaff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.enter-btn:hover {
+  background-color: #008fcc;
+}
+
+/* Cookie popup */
+#cookiePopup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
