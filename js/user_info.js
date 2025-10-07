@@ -1,17 +1,17 @@
 // js/user_info.js
 document.addEventListener('DOMContentLoaded', () => {
-  const userInfoDiv = document.getElementById('userInfo');
+    const userInfoDiv = document.getElementById('userInfo');
 
-  const name = localStorage.getItem('username');
-  const email = localStorage.getItem('email');
-  const phone = localStorage.getItem('phone');
+    const username = sessionStorage.getItem('username');
+    const email = sessionStorage.getItem('email');
+    const phone = sessionStorage.getItem('phone');
 
-  if (name || email || phone) {
-    userInfoDiv.innerHTML = `
-      <h3>Your Information:</h3>
-      <p><strong>Name:</strong> ${name || 'N/A'}</p>
-      <p><strong>Email:</strong> ${email || 'N/A'}</p>
-      <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
-    `;
-  }
+    if (username || email || phone) {
+      userInfoDiv.innerHTML = `
+        <h3>Your Information:</h3>
+        <p><strong>Name:</strong> ${username || 'N/A'}</p>
+        <p><strong>Email:</strong> ${email || 'N/A'}</p>
+        <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+      `;
+    }
 });
