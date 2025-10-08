@@ -67,6 +67,14 @@
     background: url('../images/user_consent.png') center/cover no-repeat;
     }
 
+    .user-consent {
+    background: url('../images/user_consent.png') center/cover no-repeat;
+    }
+
+    .user-consent:hover {
+    background: url('../images/user_consent.gif') center/cover no-repeat;
+    }
+
     .data-encryption {
     background: url('../images/data_encryption.png') center/cover no-repeat;
     }
