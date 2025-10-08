@@ -59,6 +59,10 @@ body {
   width: 100%;
 }
 
+#bias-post {
+ max-width: 1000px;
+}
+
 .post:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
@@ -89,6 +93,33 @@ body {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.list-info {
+  margin-top: 20px;       /* space below caption */
+  padding: 15px 20px;
+  background-color: #eef1f6;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1e1e2f;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#bias-methods {
+  margin-top: 20px; /* adjust spacing as needed */
+}
+
+#storage-list {
+  max-width: 700px;
+}
+
+#bias-ethics {
+  max-width: 900px;
 }
 
 /* =========================================================

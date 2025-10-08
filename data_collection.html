@@ -3,147 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Insta-style Feed</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      background-color: #f0f0f3;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .user-icon {
-      font-size: 24px;
-      text-decoration: none;
-      color: #1e1e2f;
-      transition: color 0.2s;
-    }
-
-    .user-icon:hover {
-      color: #00aaff;
-    }
-
-    /* Scrollable feed */
-    .feed {
-      flex: 1;
-      overflow-y: auto;
-      padding: 15px;
-    }
-
-    .post {
-      margin-bottom: 20px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      padding: 10px;
-    }
-
-    .post img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .caption {
-      margin-top: 8px;
-      font-size: 15px;
-      color: #444;
-      font-weight: 500;
-      text-align: center;
-    }
-
-    .post:last-child {
-      margin-bottom: 100px;
-    }
-
-    /* Bottom nav bar */
-    .bottom-nav {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      height: 60px;
-      background-color: #1e1e2f;
-      border-top: 1px solid #333;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-    }
-
-    .bottom-nav a {
-      font-size: 14px;
-      color: #d1d1d1;
-      text-decoration: none;
-      padding: 10px;
-      transition: color 0.2s;
-    }
-
-    .bottom-nav a:hover {
-      color: #00aaff;
-    }
-
-    .bottom-nav a.active {
-      color: #00aaff;
-      font-weight: bold;
-      border-bottom: 2px solid #00aaff;
-    }
-  </style>
+  <title>Data Collection</title>
+  <link rel="stylesheet" href="css/base.css">
 </head>
+
 <body>
+  <!-- Page Title -->
+  <div class="page-title">Data Collection</div>
 
   <!-- Feed -->
   <div class="feed">
     <div class="post">
-      <div class="caption">Data Collection</div>
-    </div>
-    <div class="post">
-      <div class="caption">User Consent</div>
-    </div>
-    <div class="post">
-      <div class="caption">Data Storage</div>
-    </div>
-    <div class="post">
-      <div class="caption">Data Sharing/Selling</div>
-    </div>
-    <div class="post">
-      <div class="caption">Bias and Fairness</div>
-    </div>
-    <div class="post">
-      <div class="caption">How to Protect Yourself</div>
-    </div>
-    <div class="post">
-      <div class="caption">References</div>
+      <div class="caption">
+        Data collection happens online through tools like cookies, pixels, and device fingerprinting, which can track users’ activities even across different devices and after leaving a site. Apps also use advertising identifiers to monitor behavior. Companies collect this data to personalize content, display targeted ads, and analyze user activity.
+      </div>
+
+      <div class="user-info">
+        <p>There are two types of tracking:</p>
+        <p><strong>First-party tracking</strong> — done by the site a user visits directly.</p>
+        <p><strong>Third-party tracking</strong> — done across multiple websites, mainly for advertising.</p>
+      </div>
+
+      <div class="user-info">
+        <p><strong>Social Contract Theory:</strong> Data collection is ethical only when it’s <em>consensual, transparent, and mutually beneficial</em>. It becomes unethical if hidden or manipulative — for example, when pixels continue tracking users after they leave a site without consent. This breaches privacy and breaks the social contract.</p>
+      </div>
+
+      <div class="user-info">
+        <p><strong>Kantian Ethics:</strong> Data collection is usually unethical because it often lacks <em>informed consent</em> and treats people as means for profit. Practices like device fingerprinting or selling app identifiers without the user’s knowledge violate Kantian duties of honesty and respect for individuals.</p>
+      </div>
     </div>
   </div>
 
   <!-- Bottom Navigation -->
   <div class="bottom-nav">
-    <a href="index.html">Home</a>
+    <a href="home.html">Summary</a>
     <a href="sections.html">Sections</a>
     <a href="references.html">References</a>
   </div>
 
-  <!-- Active link script -->
-  <script>
-    const links = document.querySelectorAll('.bottom-nav a');
-    const currentPage = window.location.pathname.split('/').pop();
-
-    links.forEach(link => {
-      if (link.getAttribute('href') === currentPage) {
-        link.classList.add('active');
-      }
-    });
-  </script>
-
+  <script src="js/active_link.js"></script>
+  <script src="js/tracker.js"></script>
 </body>
 </html>
-
