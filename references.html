@@ -10,72 +10,75 @@
 
   <!-- Project Section -->
   <div class="project-container">
-    <a href="recycled-pet.html" style="text-decoration: none;">
-      <div class="project-card">
-        <div class="project-title">Data Collection</div>
-        <div class="cost-summary">
-          <p><strong>Reference:</strong></p>
-          <ul>
-            <li>Reference Here</li>
-          </ul>
-        </div>
+    <div class="project-card">
+      <div class="project-title">Data Collection</div>
+      <div class="cost-summary">
+        <p><strong>Reference:</strong></p>
+        <ul>
+          <li>Staff, B. (2024, April 23). <a href="https://consumer.ftc.gov/articles/how-websites-apps-collect-use-your-information" target="_blank">How websites and apps collect and use your information</a>. Consumer Advice.</li>
+        </ul>
       </div>
-    </a>
-    <a href="recycled-pet.html" style="text-decoration: none;">
-      <div class="project-card">
-        <div class="project-title">User Consent</div>
-        <div class="cost-summary">
-          <p><strong>Reference:</strong></p>
-          <ul>
-            <li>Reference Here</li>
-          </ul>
-        </div>
+    </div>
+  </div>
+
+  <div class="project-container">
+    <div class="project-card">
+      <div class="project-title">User Consent</div>
+      <div class="cost-summary">
+        <p><strong>Reference:</strong></p>
+        <ul>
+          <li>Reference Here</li>
+        </ul>
       </div>
-    </a>
-    <a href="recycled-pet.html" style="text-decoration: none;">
-      <div class="project-card">
-        <div class="project-title">Data Storage</div>
-        <div class="cost-summary">
-          <p><strong>Reference:</strong></p>
-          <ul>
-            <li>Reference Here</li>
-          </ul>
-        </div>
+    </div>
+  </div>
+
+  <div class="project-container">
+    <div class="project-card">
+      <div class="project-title">Data Encryption</div>
+      <div class="cost-summary">
+        <p><strong>Reference:</strong></p>
+        <ul>
+          <li>P. Yang, N. Xiong and J. Ren, "Data Security and Privacy Protection for Cloud Storage: A Survey," in <em>IEEE Access</em>, vol. 8, pp. 131723-131740, 2020.</li>
+        </ul>
       </div>
-    </a>
-    <a href="recycled-pet.html" style="text-decoration: none;">
-      <div class="project-card">
-        <div class="project-title">Data Sharing/Selling</div>
-        <div class="cost-summary">
-          <p><strong>Reference:</strong></p>
-          <ul>
-            <li>Reference Here</li>
-          </ul>
-        </div>
+    </div>
+  </div>
+
+  <div class="project-container">
+    <div class="project-card">
+      <div class="project-title">Data Storage</div>
+      <div class="cost-summary">
+        <p><strong>Reference:</strong></p>
+        <ul>
+          <li>Reference Here</li>
+        </ul>
       </div>
-    </a>
-    <a href="recycled-pet.html" style="text-decoration: none;">
-      <div class="project-card">
-        <div class="project-title">Bias and Fairness</div>
-        <div class="cost-summary">
-          <p><strong>Reference:</strong></p>
-          <ul>
-            <li>Reference Here</li>
-          </ul>
-        </div>
+    </div>
+  </div>
+
+  <div class="project-container">
+    <div class="project-card">
+      <div class="project-title">Data Collection</div>
+      <div class="cost-summary">
+        <p><strong>Reference:</strong></p>
+        <ul>
+          <li>Rogers, J., & Jonker, A. (2025, July 15). <a href="https://www.ibm.com/think/topics/data-bias" target="_blank">What is data bias?</a> IBM.</li>
+        </ul>
       </div>
-    </a>
-    <a href="recycled-pet.html" style="text-decoration: none;">
-      <div class="project-card">
-        <div class="project-title">How to Protect Yourself</div>
-        <div class="cost-summary">
-          <p><strong>Reference:</strong></p>
-          <ul>
-            <li>Reference Here</li>
-          </ul>
-        </div>
+    </div>
+  </div>
+
+  <div class="project-container">
+    <div class="project-card">
+      <div class="project-title">How to Protect Yourself</div>
+      <div class="cost-summary">
+        <p><strong>Reference:</strong></p>
+        <ul>
+          <li>Reference Here</li>
+        </ul>
       </div>
-    </a>
+    </div>
   </div>
 
   <!-- Bottom Navigation -->
@@ -85,16 +88,7 @@
     <a href="references.html" class="active">References</a>
   </div>
 
-  <script>
-    const links = document.querySelectorAll('.bottom-nav a');
-    const currentPage = window.location.pathname.split('/').pop();
-
-    links.forEach(link => {
-      if (link.getAttribute('href') === currentPage) {
-        link.classList.add('active');
-      }
-    });
-  </script>
+  <script src="js/active_link.js"></script>
   <script src="js/tracker.js"></script>
   <script src="js/page_visits.js"></script>
 
