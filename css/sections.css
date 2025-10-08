@@ -1,0 +1,101 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f0f0f3;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* Grid layout for feed: 2 rows, 3 columns */
+    .feed {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 40vh); /* each row takes half viewport height */
+      gap: 15px;
+      padding: 15px;
+      flex: 1;
+    }
+
+    .post {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .post:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .post a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Background images for each post */
+    .data-collection { background: url('images/data_collection.jpg') center/cover no-repeat; }
+    .user-consent { background: url('images/user_consent.jpg') center/cover no-repeat; }
+    .data-encryption { background: url('images/data_encryption.jpg') center/cover no-repeat; }
+    .data-storage { background: url('images/data_storage.jpg') center/cover no-repeat; }
+    .bias { background: url('images/bias.jpg') center/cover no-repeat; }
+    .how-to-protect { background: url('images/how_to_protect.jpg') center/cover no-repeat; }
+
+    /* Bottom nav bar */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      background-color: #1e1e2f;
+      border-top: 1px solid #333;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .bottom-nav a {
+      font-size: 14px;
+      color: #d1d1d1;
+      text-decoration: none;
+      padding: 10px;
+      transition: color 0.2s;
+    }
+
+    .bottom-nav a:hover {
+      color: #00aaff;
+    }
+
+    .bottom-nav a.active {
+      color: #00aaff;
+      font-weight: bold;
+      border-bottom: 2px solid #00aaff;
+    }
+
+    /* Add bottom padding to avoid navbar overlap */
+    .feed {
+      padding-bottom: 80px;
+    }
