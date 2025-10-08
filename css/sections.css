@@ -31,7 +31,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #fff;
+      color: #ffffff;
       font-size: 24px;
       font-weight: bold;
       text-shadow: 0 2px 5px rgba(0,0,0,0.5);
@@ -54,13 +54,46 @@
       align-items: center;
     }
 
-    /* Background images for each post */
-    .data-collection { background: url('images/data_collection.jpg') center/cover no-repeat; }
-    .user-consent { background: url('images/user_consent.jpg') center/cover no-repeat; }
-    .data-encryption { background: url('images/data_encryption.jpg') center/cover no-repeat; }
-    .data-storage { background: url('images/data_storage.jpg') center/cover no-repeat; }
-    .bias { background: url('images/bias.jpg') center/cover no-repeat; }
-    .how-to-protect { background: url('images/how_to_protect.jpg') center/cover no-repeat; }
+    /* Post backgrounds: static by default */
+    .data-collection {
+    background: url('../images/data_collection.png') center/cover no-repeat;
+    }
+
+    .data-collection:hover {
+    background: url('../images/data_collection.gif') center/cover no-repeat;
+    }
+
+    .user-consent {
+    background: url('../images/user_consent.png') center/cover no-repeat;
+    }
+
+    .data-encryption {
+    background: url('../images/data_encryption.png') center/cover no-repeat;
+    }
+
+    .data-encryption:hover {
+    background: url('../images/data_encryption.gif') center/cover no-repeat;
+    }
+
+    .data-storage {
+    background: url('../images/data_storage.png') center/cover no-repeat;
+    }
+
+    .data-storage:hover {
+    background: url('../images/data_storage.gif') center/cover no-repeat;
+    }
+
+    .bias {
+    background: url('../images/bias.png') center/cover no-repeat;
+    }
+
+    .bias:hover {
+    background: url('../images/bias.gif') center/cover no-repeat;
+    }
+
+    .how-to-protect { background: url('../images/how_to_protect.png') center/cover no-repeat; }
+
+
 
     /* Bottom nav bar */
     .bottom-nav {
