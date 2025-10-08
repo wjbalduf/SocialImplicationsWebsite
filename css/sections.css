@@ -99,7 +99,13 @@
     background: url('../images/bias.gif') center/cover no-repeat;
     }
 
-    .how-to-protect { background: url('../images/how_to_protect.png') center/cover no-repeat; }
+    .how-to-protect {
+    background: url('../images/how-to-protect.png') center/cover no-repeat;
+    }
+
+    .how-to-protect:hover {
+    background: url('../images/how-to-protect.gif') center/cover no-repeat;
+    }
 
 
 
