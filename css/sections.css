@@ -100,11 +100,11 @@
     }
 
     .how-to-protect {
-    background: url('../images/how-to-protect.png') center/cover no-repeat;
+    background: url('../images/how_to_protect.png') center/cover no-repeat;
     }
 
     .how-to-protect:hover {
-    background: url('../images/how-to-protect.gif') center/cover no-repeat;
+    background: url('../images/how_to_protect.gif') center/cover no-repeat;
     }
 
 
