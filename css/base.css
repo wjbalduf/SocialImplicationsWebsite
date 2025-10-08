@@ -122,6 +122,12 @@ body {
   max-width: 900px;
 }
 
+#visitedPages {
+  margin: 10px auto 0 auto;       /* centers horizontally */
+  text-align: center;   /* centers inline content/text inside */
+  width: fit-content;   /* shrink width to content */
+}
+
 /* =========================================================
    Project Cards (Projects page)
 ========================================================= */
