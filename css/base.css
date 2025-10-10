@@ -123,6 +123,13 @@ body {
   max-width: 900px;
 }
 
+#protect_caption {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 #visitedPages {
   margin: 10px auto 0 auto;       /* centers horizontally */
   text-align: center;   /* centers inline content/text inside */
